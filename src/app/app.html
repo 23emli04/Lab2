@@ -10,12 +10,14 @@
   <section class="col">
     <app-league-list
     [sportIn]="currentSport()" 
+    (selectLeagueIdOut)="onLeagueSelect($event)"
   >
   </app-league-list>
   </section>
   <section class="col">
     <app-team-list 
-   [leagueIn]="selectedLeagueId()">
+   [leagueIdIn]="selectedLeagueId()">
+   
     </app-team-list>
   </section>
 </main>
@@ -23,7 +25,7 @@
 
 <!-- currentSport är alltså en variabel (property) i den här komponenten (ts filen)
   och rader som '[selectedSportIn]="currentSport()"' betyder alltså att input-signalen
-  'selectedSportIn' i SportMenu kommer att få värdet som 'currentSport' har.
+  'selectedSportIn' SportMenu kommer att få värdet som 'currentSport' har.
   Raden '[sportIn]="currentSport()" ' betyder att LeagueList's input-signal 'sportIn'
   också får värdet av 'currentSport'
   Föräldern AppComponent (denna komponent) fungerar alltså d en överförare av 

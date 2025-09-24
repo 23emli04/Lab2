@@ -28,6 +28,7 @@ export class AppComponent {
   // Den skall kunna ha 'null' också och default är just 'null'
   selectedLeagueId = signal<number | null>(null);
   onLeagueSelect(leagueId: number) {
+      console.log("AppComponent: onLeagueSelect fired with id =", leagueId);
     this.selectedLeagueId.set(leagueId);
   }
   // Sätt värdet via en metod som triggas av barnet LeagueList och som skickas

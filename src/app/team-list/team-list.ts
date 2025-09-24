@@ -10,7 +10,7 @@ import { SportsApiService } from '../services/sports-api-service';
   styleUrl: './team-list.css'
 })
 export class TeamList {
-  leagueIn = input.required<number | null>();
+  leagueIdIn = input.required<number | null>();
 
   teams = signal<Team[]>([]);
   loading = signal(false);
@@ -20,18 +20,19 @@ export class TeamList {
   private api = inject(SportsApiService);
   constructor() {
     effect((onCleanup) => {
-      const leagueId = this.leagueIn();
+      const leagueIdIn = this.leagueIdIn();
+      console.log("TeamList: leagueIdIn ändrades: ", leagueIdIn);
       this.loading.set(true); this.error.set(null);
 
       const ctrl = new AbortController();
       onCleanup(() => ctrl.abort()); // avbryt förra fetchen om league ändras
-      if (leagueId == null) {
+      if (leagueIdIn  == null) {
         this.teams.set([]);
         this.loading.set(false);
         return;
       }
 
-      this.api.getTeams(leagueId, ctrl.signal).then(
+      this.api.getTeams(leagueIdIn, ctrl.signal).then(
         data => { this.teams.set(data); this.loading.set(false); },
         err => { if (err.name !== 'AbortError') { this.error.set('Kunde inte hämta lag.'); this.loading.set(false); } }
       );

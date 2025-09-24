@@ -26,8 +26,10 @@ sportIn = input.required<Sport>();
  // Reagera på sport() med effect. Denna kod har även med felhantering och annat som
  // kommer behövas i Projektet men inte är helt nödvändigt för labben.
  constructor() {
+  console.log("LeagueList konstruerad");
    effect((onCleanup) => {
      const s = this.sportIn();
+     console.log("LeagueList, sport ändrad:", s);
      this.loading.set(true); this.error.set(null);
    
      const ctrl = new AbortController();
@@ -40,4 +42,3 @@ sportIn = input.required<Sport>();
    });
  }
 }
-
