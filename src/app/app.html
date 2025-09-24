@@ -9,11 +9,14 @@
 <main class="layout">
   <section class="col">
     <app-league-list
-    [sportIn]="currentSport()"   >
+    [sportIn]="currentSport()" 
+  >
   </app-league-list>
   </section>
   <section class="col">
-    <app-team-list> </app-team-list>
+    <app-team-list 
+   [leagueIn]="selectedLeagueId()">
+    </app-team-list>
   </section>
 </main>
 
@@ -23,7 +26,7 @@
   'selectedSportIn' i SportMenu kommer att få värdet som 'currentSport' har.
   Raden '[sportIn]="currentSport()" ' betyder att LeagueList's input-signal 'sportIn'
   också får värdet av 'currentSport'
-  Föräldern AppComponent (denna komponent) fungerar alltså som en överförare av 
+  Föräldern AppComponent (denna komponent) fungerar alltså d en överförare av 
   signal värden via sina lokala signal variabler.
 
   (sportChangeOut)="onSportChange($event)" betyder att output-signalen 'sportChangeOut' i 

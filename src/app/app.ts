@@ -14,6 +14,7 @@ import { Sport } from './types'
 })
 export class AppComponent {
 
+
   // Lokal signal som håller reda på vald sport, default 'football'
   // Ändras via funktionen 'onSportChange' som triggas via barnet 'SportMenu'
   // som kopplas ihop i html koden för app.
@@ -26,6 +27,9 @@ export class AppComponent {
   // Skapa en lokal signal som håller reda på vald liga (id) av typen number
   // Den skall kunna ha 'null' också och default är just 'null'
   selectedLeagueId = signal<number | null>(null);
+  onLeagueSelect(leagueId: number) {
+    this.selectedLeagueId.set(leagueId);
+  }
   // Sätt värdet via en metod som triggas av barnet LeagueList och som skickas
   // in i barnet TeamList
 }
