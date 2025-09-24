@@ -29,7 +29,6 @@ sportIn = input.required<Sport>();
   console.log("LeagueList konstruerad");
    effect((onCleanup) => {
      const s = this.sportIn();
-     console.log("LeagueList, sport ändrad:", s);
      this.loading.set(true); this.error.set(null);
    
      const ctrl = new AbortController();

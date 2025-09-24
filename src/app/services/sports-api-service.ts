@@ -22,14 +22,17 @@ export class SportsApiService {
     { id: 123935, name: 'Damallsvenskan', country: 'SE', sportId: 10, sportName: 'Fotboll' },
     { id: 125554, name: 'SDHL', country: 'SE', sportId: 2, sportName: 'Ishockey' },
     { id: 125472, name: 'SHL', country: 'SE', sportId: 2, sportName: 'Ishockey' },
+    {id: 126666, name: 'Innebandy Nörd Ligan', country:'SE', sportId:4, sportName:'Innebandy'},
   ];
   private mockTeams: Team[] = [
     { id: 9367, name: 'AIK',        logo: '', leagueId: 124439 },
     { id: 9368, name: 'Djurgården', logo: '', leagueId: 124439 },
     { id: 9739, name: 'AIK DFF',    logo: '', leagueId: 123935 },
+    { id: 9749, name: 'AIK DHF',    logo: '', leagueId: 125554},
     { id: 1171, name: 'Brynäs IF',    logo: '', leagueId: 125472 },
-  ];
+    {id: 123413, name:'Innebandy Laget', logo:'', leagueId:126666},
 
+  ];
   /**
    * Hämta ligor för vald sport.
    * - MOCK: returnerar mockLeagues filtrerat på sportId
