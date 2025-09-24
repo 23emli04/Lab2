@@ -1,0 +1,16 @@
+.sport-menu {
+  display: flex;
+  gap: 0.5rem;
+}
+.sport-menu button {
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+.sport-menu button.active {
+  background: #007bff; /* Ändra bakgrundsfärg för den aktiva knappen */
+  color: #fff; /* Ändra textfärg för bättre kontrast */
+  border-color: #007bff; /* Matcha kantfärgen med bakgrunden */
+}

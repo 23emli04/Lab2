@@ -1,0 +1,15 @@
+<nav class="sport-menu">
+  @for (sport of sports; track sport.key) {
+    <button
+      type="button"
+      (click)="pickSport(sport.key)"
+      [class.active]="selectedSportIn() === sport.key"
+      [attr.aria-pressed]="selectedSportIn() === sport.key"
+      >
+      {{ sport.label }}
+    </button>
+  }
+</nav>
+
+<!-- class.active och attr.aria-pressed är attribut som sätts till 'true'
+active är för att kunna sätta avvikande färg och aria-pressed är för tillgänglighet-->

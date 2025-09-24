@@ -1,0 +1,31 @@
+<header class="topbar">
+  <h1>SportStats (Angular)</h1>
+  <app-sport-menu 
+    [selectedSportIn]="currentSport()"
+    (sportChangeOut)="onSportChange($event)"  >
+  </app-sport-menu>
+</header>
+
+<main class="layout">
+  <section class="col">
+    <app-league-list
+    [sportIn]="currentSport()"   >
+  </app-league-list>
+  </section>
+  <section class="col">
+    <app-team-list> </app-team-list>
+  </section>
+</main>
+
+
+<!-- currentSport är alltså en variabel (property) i den här komponenten (ts filen)
+  och rader som '[selectedSportIn]="currentSport()"' betyder alltså att input-signalen
+  'selectedSportIn' i SportMenu kommer att få värdet som 'currentSport' har.
+  Raden '[sportIn]="currentSport()" ' betyder att LeagueList's input-signal 'sportIn'
+  också får värdet av 'currentSport'
+  Föräldern AppComponent (denna komponent) fungerar alltså som en överförare av 
+  signal värden via sina lokala signal variabler.
+
+  (sportChangeOut)="onSportChange($event)" betyder att output-signalen 'sportChangeOut' i 
+  SportMenu kopplas till den här förädrakomponentens metod 'onSportChange()' och det
+  som kommer ut (via .emit()) hamnar som input till 'onSportChange()' -->

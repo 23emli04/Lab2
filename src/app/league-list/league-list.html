@@ -1,0 +1,18 @@
+<h2>Liga</h2>
+@if (loading()) {
+  <p>Loading…</p>
+} @else if (error()) {
+  <p>{{ error() }}</p>
+} @else {
+  <ul>
+    @for (l of leagues(); track l.id) {
+      <li>
+        <button (click)="selectLeagueIdOut.emit(l.id)">
+          {{ l.name }} ({{ l.country }})
+        </button>
+      </li>
+    } @empty {
+      <li>Inga ligor finns.</li>
+    }
+  </ul>
+}
